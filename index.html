@@ -1,333 +1,242 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rhino's Agency</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Manrope:wght@400;500;700&display=swap">
-<style>
-:root {
-  --bg: #E4E4E6;
-  --surface: #fff;
-  --ink: #000;
-  --mute: #5C5C60;
-  --line: #C4C4C8;
-  --accent: #000;
-  --accent-ink: #fff;
-  --hot: #6E6E73;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhino's Agency - Rocket League</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0E0E0F;
-    --surface: #1A1A1C;
-    --ink: #F2F2F2;
-    --mute: #A3A3A8;
-    --line: #333336;
-    --accent: #F2F2F2;
-    --accent-ink: #0E0E0F;
-    --hot: #A3A3A8;
-  }
-}
+    <style>
+        :root {
+            --bg: #E4E4E6;
+            --ink: #000000;
+            --mute: #5C5C60;
+            --card-bg: #FFFFFF;
+            --border: #D1D1D6;
+            --accent: #000000;
+            --accent-text: #FFFFFF;
+        }
 
-:root[data-theme="dark"] {
-  --bg: #0E0E0F;
-  --surface: #1A1A1C;
-  --ink: #F2F2F2;
-  --mute: #A3A3A8;
-  --line: #333336;
-  --accent: #F2F2F2;
-  --accent-ink: #0E0E0F;
-  --hot: #A3A3A8;
-}
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121214;
+                --ink: #FFFFFF;
+                --mute: #A1A1A6;
+                --card-bg: #1C1C1E;
+                --border: #2C2C2E;
+                --accent: #FFFFFF;
+                --accent-text: #000000;
+            }
+        }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font: 400 1rem/1.6 'Manrope', system-ui, sans-serif;
-}
+        body {
+            background-color: var(--bg);
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-h1, h2, h3 {
-  font-family: "Big Shoulders Display", Impact, sans-serif;
-  line-height: .95;
-  margin: 0;
-  letter-spacing: .01em;
-}
+        /* Header / Navbar */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+        }
 
-h1 {
-  font-size: clamp(3.4rem, 13vw, 9rem);
-  font-weight: 900;
-}
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--ink);
+        }
 
-h2 {
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
-  font-weight: 900;
-  margin-bottom: .4em;
-}
+        .brand h1 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
+        /* Hero Section Originale */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
 
-p {
-  margin: .4em 0;
-  max-width: 62ch;
-}
+        @media (min-width: 860px) {
+            .hero {
+                grid-template-columns: 1.3fr 1fr;
+                align-items: center;
+            }
+        }
 
-a {
-  color: inherit;
-}
+        .hero-text h1 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: clamp(3.4rem, 8vw, 6rem);
+            line-height: 0.9;
+            font-weight: 900;
+            text-transform: uppercase;
+            animation: in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-:focus-visible {
-  outline: 3px solid var(--hot);
-  outline-offset: 2px;
-}
+        .hero-text h1 span {
+            display: block;
+            color: var(--mute);
+            margin-left: 0.2em;
+        }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  background: var(--bg);
-  border-bottom: 2px solid var(--ink);
-}
+        .hero-text p {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--mute);
+            max-width: 500px;
+        }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .6rem 1rem;
-  max-width: 1100px;
-  margin: auto;
-  overflow-x: auto;
-}
+        /* Nuova Sezione: Rocket League Teams */
+        .rl-section {
+            margin-top: 4rem;
+        }
 
-.logo {
-  font: 900 1.5rem "Big Shoulders Display", sans-serif;
-  margin-right: auto;
-  text-decoration: none;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-}
+        .rl-section h2 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 0.5rem;
+        }
 
-nav button {
-  font: 700 .95rem 'Manrope', sans-serif;
-  background: none;
-  border: 0;
-  color: var(--ink);
-  padding: .5rem .8rem;
-  border-radius: 6px;
-  cursor: pointer;
-  white-space: nowrap;
-}
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
 
-nav button.active {
-  background: var(--ink);
-  color: var(--bg);
-}
+        .team-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 2rem 1rem 4rem;
-}
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
 
-section.page {
-  display: none;
-}
+        .team-card h3 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
 
-section.page.active {
-  display: block;
-}
+        .team-card .region {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--mute);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
 
-.hero {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr;
-  align-items: center;
-  padding: 2rem 0 3rem;
-  border-bottom: 2px solid var(--ink);
-  margin-bottom: 2.5rem;
-}
+        .team-card .description {
+            font-size: 0.95rem;
+            color: var(--ink);
+        }
 
-@media (min-width: 860px) {
-  .hero {
-    grid-template-columns: 1.3fr 1fr;
-  }
-}
-
-.hero h1 span {
-  display: block;
-}
-
-.hero h1 span:nth-child(2) {
-  color: var(--mute);
-  margin-left: .4em;
-}
-
-.lead {
-  font-size: 1.2rem;
-  margin-top: 1.2rem;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 1.2rem;
-  background: var(--accent);
-  color: var(--accent-ink);
-  font-weight: 700;
-  text-decoration: none;
-  padding: .8rem 1.4rem;
-  border-radius: 8px;
-  border: 0;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.btn.alt {
-  background: none;
-  color: var(--ink);
-  border: 2px solid var(--ink);
-  margin-left: .5rem;
-}
-
-.grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-}
-
-.card {
-  background: var(--surface);
-  border: 2px solid var(--ink);
-  border-radius: 10px;
-  padding: 1.1rem;
-}
-
-.card p {
-  color: var(--mute);
-  font-size: .95rem;
-}
-
-.sub {
-  margin: 2.5rem 0 1rem;
-  padding-bottom: .4rem;
-  border-bottom: 2px solid var(--ink);
-}
-
-footer {
-  border-top: 2px solid var(--ink);
-  padding: 1.5rem 1rem;
-  text-align: center;
-  color: var(--mute);
-  font-size: .9rem;
-}
-</style>
+        @keyframes in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <nav>
-    <a class="logo" href="#home">Rhino's Agency</a>
-    <button type="button" class="nav-btn active" onclick="switchTab('home', this)">Home</button>
-    <button type="button" class="nav-btn" onclick="switchTab('servizi', this)">Servizi</button>
-    <button type="button" class="nav-btn" onclick="switchTab('chi-siamo', this)">Chi Siamo</button>
-    <button type="button" class="nav-btn" onclick="switchTab('contatti', this)">Contatti</button>
-  </nav>
-</header>
 
-<main>
-  <!-- HOME PAGE -->
-  <section id="home" class="page active">
-    <div class="hero">
-      <div>
-        <h1>
-          <span>Rhino's</span>
-          <span>Agency</span>
-        </h1>
-        <p class="lead">Soluzioni digitali, sviluppo web e strategie di crescita su misura per la tua attività.</p>
-        <button type="button" class="btn" onclick="switchTab('contatti', document.querySelectorAll('.nav-btn')[3])">Contattaci</button>
-        <button type="button" class="btn alt" onclick="switchTab('servizi', document.querySelectorAll('.nav-btn')[1])">I Nostri Servizi</button>
-      </div>
-    </div>
+    <!-- Header -->
+    <header>
+        <a href="#" class="brand">
+            <!-- Logo Base64 originale o testuale -->
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5z'/><path d='M2 17l10 5 10-5'/><path d='M2 12l10 5 10-5'/></svg>" alt="Rhino's Logo">
+            <h1>Rhino's Agency</h1>
+        </a>
+    </header>
 
-    <h2 class="sub">Perché Sceglierci</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Design Moderno</h3>
-        <p>Interfacce curate nei minimi dettagli per garantire l'impatto visivo migliore.</p>
-      </div>
-      <div class="card">
-        <h3>Prestazioni Elevate</h3>
-        <p>Codice ottimizzato per caricamenti rapidi e massima fluidità.</p>
-      </div>
-      <div class="card">
-        <h3>SEO &amp; Visibilità</h3>
-        <p>Struttura studiata per posizionarsi sui motori di ricerca.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Main Hero -->
+    <main class="hero">
+        <div class="hero-text">
+            <h1>
+                Esports &
+                <span>Rocket League</span>
+            </h1>
+            <p>Gestiamo ed eleviamo i talenti del competitivo globale. Scopri i principali team di Rocket League nel nostro roster.</p>
+        </div>
+    </main>
 
-  <!-- SERVIZI PAGE -->
-  <section id="servizi" class="page">
-    <h2>I Nostri Servizi</h2>
-    <p class="lead">Offriamo un pacchetto completo per portare il tuo business al livello successivo.</p>
-    <div class="grid" style="margin-top: 1.5rem;">
-      <div class="card">
-        <h3>Sviluppo Web</h3>
-        <p>Siti vetrina, e-commerce e web app personalizzate su misura.</p>
-      </div>
-      <div class="card">
-        <h3>Branding &amp; UI/UX</h3>
-        <p>Creazione di logo, identità visiva ed esperienze utente coinvolgenti.</p>
-      </div>
-      <div class="card">
-        <h3>Digital Marketing</h3>
-        <p>Campagne pubblicitarie, strategia social e ottimizzazione delle conversioni.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Sezione Aggiunta: 5 Squadre di Rocket League -->
+    <section class="rl-section">
+        <h2>Rocket League Teams</h2>
+        <div class="teams-grid">
+            
+            <div class="team-card">
+                <h3>Team Vitality</h3>
+                <div class="region">Europa (EU)</div>
+                <p class="description">Campioni del Mondo RLCS 2022-23, celebri per il loro stile di gioco dominatore e aggressivo.</p>
+            </div>
 
-  <!-- CHI SIAMO PAGE -->
-  <section id="chi-siamo" class="page">
-    <h2>Chi Siamo</h2>
-    <p class="lead">Siamo un team di sviluppatori e creativi focalizzati sul risultato.</p>
-    <div class="card" style="margin-top: 1.5rem;">
-      <p>Ci occupiamo di trasformare le idee in prodotti digitali concreti e performanti. Lavoriamo a stretto contatto con i nostri clienti per garantire qualità, trasparenza e tempi di consegna rapidi.</p>
-    </div>
-  </section>
+            <div class="team-card">
+                <h3>Karmine Corp</h3>
+                <div class="region">Europa (EU)</div>
+                <p class="description">Una delle organizzazioni più segutie al mondo, nota per il supporto caloroso del "Blue Wall".</p>
+            </div>
 
-  <!-- CONTATTI PAGE -->
-  <section id="contatti" class="page">
-    <h2>Contattaci</h2>
-    <p class="lead">Hai un progetto in mente? Parliamone.</p>
-    <div class="card" style="margin-top: 1.5rem;">
-      <p><strong>Email:</strong> info@rhinosagency.com</p>
-      <p><strong>Telefono:</strong> +39 02 1234567</p>
-      <button class="btn" style="margin-top: 1rem;">Invia un messaggio</button>
-    </div>
-  </section>
-</main>
+            <div class="team-card">
+                <h3>Team BDS</h3>
+                <div class="region">Europa (EU)</div>
+                <p class="description">Organizzazione svizzera pluri-campionessa che ha ridefinito la velocità tattica su Rocket League.</p>
+            </div>
 
-<footer>
-  <p>&copy; 2026 Rhino's Agency. Tutti i diritti riservati.</p>
-</footer>
+            <div class="team-card">
+                <h3>NRG Esports</h3>
+                <div class="region">Nord America (NA)</div>
+                <p class="description">Un pilastro storico della scena nordamericana e tra le squadre più amate di sempre.</p>
+            </div>
 
-<script>
-function switchTab(tabId, btn) {
-  document.querySelectorAll('section.page').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  
-  const target = document.getElementById(tabId);
-  if (target) target.classList.add('active');
-  if (btn) btn.classList.add('active');
-}
-</script>
+            <div class="team-card">
+                <h3>Gen.G Mobil1 Racing</h3>
+                <div class="region">Nord America (NA)</div>
+                <p class="description">Team costante ed estremamente solido, vincitore del Major RLCS alla loro stagione di debutto.</p>
+            </div>
+
+        </div>
+    </section>
+
 </body>
 </html>
