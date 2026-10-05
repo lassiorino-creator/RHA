@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhino's Agency - Rocket League</title>
+    <title>Rhino's Agency</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +90,7 @@
 
         .hero-text h1 {
             font-family: 'Big Shoulders Display', sans-serif;
-            font-size: clamp(3.4rem, 8vw, 6rem);
+            font-size: clamp(3.4rem, 13vw, 9rem);
             line-height: 0.9;
             font-weight: 900;
             text-transform: uppercase;
@@ -100,7 +100,7 @@
         .hero-text h1 span {
             display: block;
             color: var(--mute);
-            margin-left: 0.2em;
+            margin-left: 0.4em;
         }
 
         .hero-text p {
@@ -108,62 +108,6 @@
             font-size: 1.1rem;
             color: var(--mute);
             max-width: 500px;
-        }
-
-        /* Nuova Sezione: Rocket League Teams */
-        .rl-section {
-            margin-top: 4rem;
-        }
-
-        .rl-section h2 {
-            font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--ink);
-            padding-bottom: 0.5rem;
-        }
-
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .team-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        .team-card h3 {
-            font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.25rem;
-        }
-
-        .team-card .region {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--mute);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-        }
-
-        .team-card .description {
-            font-size: 0.95rem;
-            color: var(--ink);
         }
 
         @keyframes in {
@@ -183,7 +127,6 @@
     <!-- Header -->
     <header>
         <a href="#" class="brand">
-            <!-- Logo Base64 originale o testuale -->
             <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5z'/><path d='M2 17l10 5 10-5'/><path d='M2 12l10 5 10-5'/></svg>" alt="Rhino's Logo">
             <h1>Rhino's Agency</h1>
         </a>
@@ -193,50 +136,15 @@
     <main class="hero">
         <div class="hero-text">
             <h1>
-                Esports &
-                <span>Rocket League</span>
+                Rhino's
+                <span>Agency</span>
             </h1>
-            <p>Gestiamo ed eleviamo i talenti del competitivo globale. Scopri i principali team di Rocket League nel nostro roster.</p>
+            <p>Descrizione della tua agenzia qui.</p>
+        </div>
+        <div class="hero-logo">
+            <!-- Eventuale immagine o grafica -->
         </div>
     </main>
-
-    <!-- Sezione Aggiunta: 5 Squadre di Rocket League -->
-    <section class="rl-section">
-        <h2>Rocket League Teams</h2>
-        <div class="teams-grid">
-            
-            <div class="team-card">
-                <h3>Team Vitality</h3>
-                <div class="region">Europa (EU)</div>
-                <p class="description">Campioni del Mondo RLCS 2022-23, celebri per il loro stile di gioco dominatore e aggressivo.</p>
-            </div>
-
-            <div class="team-card">
-                <h3>Karmine Corp</h3>
-                <div class="region">Europa (EU)</div>
-                <p class="description">Una delle organizzazioni più segutie al mondo, nota per il supporto caloroso del "Blue Wall".</p>
-            </div>
-
-            <div class="team-card">
-                <h3>Team BDS</h3>
-                <div class="region">Europa (EU)</div>
-                <p class="description">Organizzazione svizzera pluri-campionessa che ha ridefinito la velocità tattica su Rocket League.</p>
-            </div>
-
-            <div class="team-card">
-                <h3>NRG Esports</h3>
-                <div class="region">Nord America (NA)</div>
-                <p class="description">Un pilastro storico della scena nordamericana e tra le squadre più amate di sempre.</p>
-            </div>
-
-            <div class="team-card">
-                <h3>Gen.G Mobil1 Racing</h3>
-                <div class="region">Nord America (NA)</div>
-                <p class="description">Team costante ed estremamente solido, vincitore del Major RLCS alla loro stagione di debutto.</p>
-            </div>
-
-        </div>
-    </section>
 
 </body>
 </html>
